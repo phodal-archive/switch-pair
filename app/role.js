@@ -17,6 +17,26 @@ var factory = function(
                 }
             });
             return results;
+        },
+
+        getNewMember: function(members){
+            var results = [];
+            _.each(members, function(member){
+                if(member.new){
+                    results.push(member);
+                }
+            });
+            return results;
+        },
+
+        getOldMember: function(members){
+            var results = [];
+            _.each(members, function(member){
+                if(!member.new){
+                    results.push(member);
+                }
+            });
+            return results;
         }
     });
     return new Role();

@@ -9,10 +9,18 @@ var factory = function(
         initialize: function(member) {
             this.member = member;
         },
-        auto: function(){
-
+        auto: function(member){
+            var n = member.length;
+            var tempArr = [];
+            for ( var i = 0; i < n-1; i++ )
+            {
+                tempArr.push(member.splice(Math.floor(Math.random()*member.length),1)[0]);
+            }
+            tempArr.push(member[0]);
+            return tempArr;
         }
     });
+
     return new Switcher();
 };
 

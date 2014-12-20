@@ -1,9 +1,11 @@
-define(["jquery", "underscore", "role"], function($, _, Role) {
+define(["jquery", "underscore", "role", "switcher"], function($, _, Role, Switcher) {
     $('body').append('jQuery ' + $.fn.jquery + ' loaded!');
     function appendData(data) {
         var items = [];
         $.each(data, function (key, val) {
-            items.push("<li id='" + key + "'>" + val + "</li>");
+            if(key === "name"){
+                items.push(val);
+            }
         });
 
         $("<ul/>", {
@@ -14,7 +16,7 @@ define(["jquery", "underscore", "role"], function($, _, Role) {
 
     $.getJSON("data.json", function (data) {
         var allDev = Role.getDev(data);
-        console.log(allDev);
-        _.each(data, appendData);
+        var switcher = Switcher.auto(allDev);
+        _.each(switcher, appendData);
     });
 });
