@@ -1,22 +1,42 @@
 var factory = function(
     _
 ) {
-    var Role = function () {
-
+    var Role = function (members) {
+        this.initialize.apply(this, arguments);
     };
 
     _.extend(Role.prototype, {
-        initialize: function() {
-
+        initialize: function(members) {
+            this.members = members;
         },
-        getDev: function(members){
+        getDev: function(){
             var results = [];
-            _.each(members, function(member){
+            _.each(this.members, function(member){
                 if(member.dev){
                     results.push(member);
                 }
             });
             return results;
+        },
+
+        getSeniorNumber: function(){
+            var num = 0;
+            _.each(this.members, function(member){
+                if(member.new === false){
+                    num = num + 1;
+                }
+            });
+            return num;
+        },
+
+        getJuniorNumber: function(){
+            var num = 0;
+            _.each(this.members, function(member){
+                if(member.new === true){
+                    num = num + 1;
+                }
+            });
+            return num;
         },
 
         getNewMember: function(members){
@@ -39,7 +59,7 @@ var factory = function(
             return results;
         }
     });
-    return new Role();
+    return Role;
 };
 
 if (typeof module !== "undefined" && module.exports) {

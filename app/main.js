@@ -1,5 +1,4 @@
 define(["jquery", "underscore", "role", "switcher"], function($, _, Role, Switcher) {
-    $('body').append('jQuery ' + $.fn.jquery + ' loaded!');
     function appendData(data) {
         var items = [];
         $.each(data, function (key, val) {
@@ -15,7 +14,10 @@ define(["jquery", "underscore", "role", "switcher"], function($, _, Role, Switch
     }
 
     $.getJSON("data.json", function (data) {
-        var allDev = Role.getDev(data);
+        var role = new Role(data);
+        var allDev = role.getDev();
+        var seniorNum = role.getSeniorNumber();
+        var juniorNum = role.getJuniorNumber();
         var switcher = Switcher.auto(allDev);
         _.each(switcher, appendData);
     });
