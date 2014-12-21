@@ -19,6 +19,26 @@ var factory = function(
             return results;
         },
 
+        getSenior: function(){
+            var results = [];
+            _.each(this.members, function(member){
+                if(!member.new){
+                    results.push(member);
+                }
+            });
+            return results;
+        },
+
+        getJunior: function(){
+            var results = [];
+            _.each(this.members, function(member){
+                if(member.new){
+                    results.push(member);
+                }
+            });
+            return results;
+        },
+
         getSeniorNumber: function(){
             var num = 0;
             _.each(this.members, function(member){
