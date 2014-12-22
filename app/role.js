@@ -19,9 +19,9 @@ var factory = function(
             return results;
         },
 
-        getSenior: function(){
+        getSenior: function(members){
             var results = [];
-            _.each(this.members, function(member){
+            _.each(members, function(member){
                 if(!member.new){
                     results.push(member);
                 }
@@ -29,9 +29,9 @@ var factory = function(
             return results;
         },
 
-        getJunior: function(){
+        getJunior: function(members){
             var results = [];
-            _.each(this.members, function(member){
+            _.each(members, function(member){
                 if(member.new){
                     results.push(member);
                 }
@@ -39,9 +39,9 @@ var factory = function(
             return results;
         },
 
-        getSeniorNumber: function(){
+        getSeniorNumber: function(members){
             var num = 0;
-            _.each(this.members, function(member){
+            _.each(members, function(member){
                 if(member.new === false){
                     num = num + 1;
                 }
@@ -49,9 +49,9 @@ var factory = function(
             return num;
         },
 
-        getJuniorNumber: function(){
+        getJuniorNumber: function(members){
             var num = 0;
-            _.each(this.members, function(member){
+            _.each(members, function(member){
                 if(member.new === true){
                     num = num + 1;
                 }
