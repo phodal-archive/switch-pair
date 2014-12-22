@@ -1,4 +1,4 @@
-define(["jquery", "underscore", "role", "switcher"], function($, _, Role, Switcher) {
+define(["jquery", "underscore", "role", "switcher", "jStorage"], function($, _, Role, Switcher) {
     function addSenior(data) {
         var items = [];
         $.each(data, function (key, val) {
@@ -13,9 +13,9 @@ define(["jquery", "underscore", "role", "switcher"], function($, _, Role, Switch
             html: items.join("")
         }
         ).appendTo("#senior");
-
-        var img = "<img src=" + data["pic_url"] + "/>";
-        $(img).appendTo("#senior");
+        //
+        //var img = "<img src=" + data["pic_url"] + "/>";
+        //$(img).appendTo("#senior");
     }
 
     function addJunior(data) {
@@ -34,13 +34,17 @@ define(["jquery", "underscore", "role", "switcher"], function($, _, Role, Switch
         ).appendTo("#junior");
     }
 
+    $.jStorage.set("mykey", "keyvalue");
     $.getJSON("data.json", function (data) {
         var role = new Role(data);
         var allDev = role.getDev();
-        var seniorDev = role.getSenior(allDev);
-        var juniorDev = role.getJunior(allDev);
-        var randomSenior = Switcher.auto(seniorDev);
-        _.each(randomSenior, addSenior);
-        _.each(juniorDev, addJunior);
+	    var isEnoughPair = role.getSeniorNumber(allDev) - role.getJuniorNumber(allDev);
+        if(isEnoughPair <= 2){
+            var seniorDev = role.getSenior(allDev);
+            var juniorDev = role.getJunior(allDev);
+            var randomSenior = Switcher.auto(seniorDev);
+            _.each(randomSenior, addSenior);
+            _.each(juniorDev, addJunior);
+        }
     });
 });

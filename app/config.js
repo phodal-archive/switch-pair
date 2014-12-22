@@ -1,21 +1,23 @@
 require.config({
-  paths: {
-    //"components": "../bower_components",
-    "jquery": "../bower_components/jquery/dist/jquery",
-    "underscore": "../bower_components/underscore/underscore"
-  },
-  shim: {
-    jquery: {
-      exports: "$"
+    paths: {
+        //"components": "../bower_components",
+        "jquery": "../bower_components/jquery/dist/jquery",
+        "underscore": "../bower_components/underscore/underscore",
+        "jStorage": "../bower_components/jStorage/jstorage"
     },
-    underscore: {
-      exports: "_"
+    shim: {
+        jStorage: ["jquery"],
+        jquery: {
+            exports: "$"
+        },
+        underscore: {
+            exports: "_"
+        }
     }
-  }
 });
 
 if (!window.requireTestMode) {
-  require(['main'], function(){ });
+    require(['main'], function(){ });
 }
 
 
