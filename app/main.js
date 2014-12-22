@@ -1,5 +1,5 @@
 define(["jquery", "underscore", "role", "switcher"], function($, _, Role, Switcher) {
-    function appendData(data) {
+    function addSenior(data) {
         var items = [];
         $.each(data, function (key, val) {
             if(key === "name" || key ==="id"){
@@ -7,12 +7,28 @@ define(["jquery", "underscore", "role", "switcher"], function($, _, Role, Switch
             }
         });
 
-        $("<ul/>",
+        $("<li/>",
         {
-            "class": "my-new-list",
+            "class": "li",
             html: items.join("")
         }
-        ).appendTo("body");
+        ).appendTo("#senior");
+    }
+
+    function addJunior(data) {
+        var items = [];
+        $.each(data, function (key, val) {
+            if(key === "name" || key ==="id"){
+                items.push(" " + val);
+            }
+        });
+
+        $("<li/>",
+            {
+                "class": "li",
+                html: items.join("")
+            }
+        ).appendTo("#junior");
     }
 
     $.getJSON("data.json", function (data) {
@@ -20,7 +36,8 @@ define(["jquery", "underscore", "role", "switcher"], function($, _, Role, Switch
         var allDev = role.getDev();
         var seniorDev = role.getSenior(allDev);
         var juniorDev = role.getJunior(allDev);
-        var switcher = Switcher.auto(seniorDev);
-        _.each(switcher, appendData);
+        var randomSenior = Switcher.auto(seniorDev);
+        _.each(randomSenior, addSenior);
+        _.each(juniorDev, addJunior);
     });
 });
