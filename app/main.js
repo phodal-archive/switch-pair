@@ -13,6 +13,9 @@ define(["jquery", "underscore", "role", "switcher"], function($, _, Role, Switch
             html: items.join("")
         }
         ).appendTo("#senior");
+
+        var img = "<img src=" + data["pic_url"] + "/>";
+        $(img).appendTo("#senior");
     }
 
     function addJunior(data) {
