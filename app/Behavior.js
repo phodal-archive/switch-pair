@@ -53,6 +53,23 @@ var factory = function(
                 }
             ).appendTo("#junior");
             //randomColor(data);
+        },
+        showLast: function(data){
+            var items = [];
+            $.each(data, function (key, val) {
+                var names = [];
+                _.each(val["pair_info"], function(pair){
+                    names.push(pair["name"])
+                });
+                items.push(names);
+            });
+
+            console.log(items);
+            $("<li/>",
+                {
+                    html: items.join("<br/>")
+                }
+            ).appendTo("#last");
         }
     });
     return new Behavior();
