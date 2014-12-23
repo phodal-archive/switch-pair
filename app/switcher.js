@@ -8,6 +8,7 @@ var factory = function(
 
     Switcher.prototype.switch = [];
     Switcher.prototype.members = [];
+
     _.extend(Switcher.prototype, {
         randomSenior: [],
         juniorDev: [],
@@ -17,17 +18,22 @@ var factory = function(
 
         auto: function(members) {
             this.members = members;
-            var n = members.length;
-            var tempArr = [];
-            for (var i = 0; i < n - 1; i++) {
-                tempArr.push(members.splice(Math.floor(Math.random() * members.length), 1)[0]);
-            }
-            tempArr.push(members[0]);
-            this.switch = tempArr;
+            var randomMember = _.sample(members, members.length);
+            this.switch = randomMember;
             return this;
         },
 
-        withLast: function(data){
+        getIds: function (members) {
+            var ids = [];
+            _.each(members, function(member){
+                ids.push(member["id"]);
+            });
+            return ids;
+        },
+
+        withLast: function(lastIDs){
+            var newIDs = this.getIds(this.switch);
+            console.log(newIDs);
             return this.switch;
         },
 
