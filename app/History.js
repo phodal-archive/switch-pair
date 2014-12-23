@@ -12,20 +12,27 @@ var factory = function(
         initialize: function(members) {
             this.members = members;
         },
-        loadData: function(data) {
-            this.data = data;
-            return this;
-        },
+
         save: function (data) {
             var results = [];
+            var lastId = [];
+            this.data = data;
             _.each(data, function(pair){
                 results.push({"pair_id":pair["pair_id"], "pair_info":pair["pair"]});
+                lastId.push(pair["pair"][0]["id"]);
             });
             Storage.save("lbs_info", JSON.stringify(results));
+            Storage.save("lbs_last_id", JSON.stringify(lastId));
         },
-        getData: function(){
+
+        getData: function() {
             return Storage.load("lbs_info");
+        },
+
+        getLastId: function(){
+            return Storage.load("lbs_last_id");
         }
+
     });
     return new History();
 };

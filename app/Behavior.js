@@ -64,7 +64,6 @@ var factory = function(
                 items.push(names);
             });
 
-            console.log(items);
             $("<li/>",
                 {
                     html: items.join("<br/>")
