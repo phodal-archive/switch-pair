@@ -17,9 +17,14 @@ var factory = function(
             return this;
         },
         save: function (data) {
+            var results = [];
             _.each(data, function(pair){
-                Storage.save("pair_id_" + pair["pair_id"], JSON.stringify(pair["pair"]));
+                results.push({"pair_id":pair["pair_id"], "pair_info":pair["pair"]});
             });
+            Storage.save("lbs_info", JSON.stringify(results));
+        },
+        getData: function(){
+            return Storage.load("lbs_info");
         }
     });
     return new History();

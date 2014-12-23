@@ -16,7 +16,7 @@ var factory = function(
             localStorage.setItem(key, value);
         }
     });
-    return Storage;
+    return new Storage();
 };
 
 if (typeof module !== "undefined" && module.exports) {

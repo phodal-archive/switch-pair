@@ -4,6 +4,8 @@ define(["jquery", "underscore", "Role", "Switcher", "Behavior", "History"], func
         History.save(data);
     });
 
+    History.getData();
+
     $.getJSON("data.json", function (data) {
         var role = new Role(data);
         var allDev = role.getDev();
@@ -11,7 +13,7 @@ define(["jquery", "underscore", "Role", "Switcher", "Behavior", "History"], func
         if(isEnoughPair <= 2){
             var seniorDev = role.getSenior(allDev);
             var juniorDev = role.getJunior(allDev);
-            var randomSenior = Switcher.auto(seniorDev);
+            var randomSenior = Switcher.auto(seniorDev).withLast(History.getData());
             _.each(randomSenior, Behavior.addSenior);
             _.each(juniorDev, Behavior.addJunior);
         }
