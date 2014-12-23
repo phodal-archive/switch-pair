@@ -4,7 +4,6 @@
         "requirejs": "~2.1.5",
         "jquery": ">= 1.8.0",
         "qunit": "~1.11.0",
-        "underscore": "~1.7.0",
-        "jStorage": "0.4.12"
+        "underscore": "~1.7.0"
     }
 }

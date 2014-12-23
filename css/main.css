@@ -24,3 +24,7 @@ li {
     width: 300px;
     text-align: center;
 }
+
+#junior, #senior {
+    font-size: 2em;
+}

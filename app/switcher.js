@@ -1,23 +1,31 @@
 var factory = function(
-    _
+    _,
+    Storage
 ) {
     var Switcher = function () {
         this.initialize.apply(this, arguments);
     };
 
     _.extend(Switcher.prototype, {
-        initialize: function(member) {
-            this.member = member;
+        randomSenior: [],
+        juniorDev: [],
+
+        initialize: function() {
         },
-        auto: function(member){
+
+        auto: function(member) {
             var n = member.length;
             var tempArr = [];
-            for ( var i = 0; i < n-1; i++ )
-            {
-                tempArr.push(member.splice(Math.floor(Math.random()*member.length),1)[0]);
+            for (var i = 0; i < n - 1; i++) {
+                tempArr.push(member.splice(Math.floor(Math.random() * member.length), 1)[0]);
             }
             tempArr.push(member[0]);
             return tempArr;
+        },
+
+        saveItem: function(senior, junior){
+            Storage.save("randomSenior", senior);
+            Storage.save("juniorDev", junior);
         }
     });
 
@@ -26,10 +34,12 @@ var factory = function(
 
 if (typeof module !== "undefined" && module.exports) {
     module.exports = factory(
-        require("underscore")
+        require("underscore"),
+        require("Storage")
     );
 } else if (typeof define !== "undefined") {
     define([
-        "underscore"
+        "underscore",
+        "Storage"
     ], factory);
 }
