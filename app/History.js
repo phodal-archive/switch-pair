@@ -30,7 +30,7 @@ var factory = function(
         },
 
         getLastId: function(){
-            return Storage.load("lbs_last_id");
+            return $.parseJSON(Storage.load("lbs_last_id"));
         }
 
     });

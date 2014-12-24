@@ -33,8 +33,26 @@ var factory = function(
 
         withLast: function(lastIDs){
             var newIDs = this.getIds(this.switch);
-            console.log(newIDs);
+            var needToReAuto = this.compare(lastIDs, newIDs);
+            while(needToReAuto){
+                this.auto(this.members);
+                var newIDs = this.getIds(this.switch);
+                needToReAuto = this.compare(lastIDs, newIDs);
+            }
             return this.switch;
+        },
+
+        compare: function(lastIDs, newIDs){
+            var needToReSort = false;
+            console.log(lastIDs);
+            console.log(newIDs);
+            _.each(newIDs, function(data, key){
+                console.log(data === lastIDs[key]);
+                if(data === lastIDs[key]){
+                    needToReSort = true;
+                }
+            });
+            return needToReSort;
         },
 
         saveItem: function(senior, junior){
