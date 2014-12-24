@@ -2,9 +2,8 @@ define(["jquery", "underscore", "Role", "Switcher", "Behavior", "History"], func
 
     $.getJSON("last.json", function (data) {
         History.save(data);
+        Behavior.showLast(JSON.parse(History.getData()));
     });
-
-    Behavior.showLast(JSON.parse(History.getData()));
 
     $.getJSON("data.json", function (data) {
         var role = new Role(data);
