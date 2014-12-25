@@ -10,9 +10,6 @@ var factory = function(
     Switcher.prototype.members = [];
 
     _.extend(Switcher.prototype, {
-        randomSenior: [],
-        juniorDev: [],
-
         initialize: function() {
         },
 

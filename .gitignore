@@ -94,3 +94,5 @@ node_modules
 data.csv
 data.json
 last.json
+dev.db
+migrations/*-create-users.js
