@@ -1,33 +1,39 @@
 {
-  "name": "switch-pairer",
-  "description": "An awesome requirejs app",
-  "version": "0.0.0",
-  "engines": {
-    "node": ">= 0.8.0"
-  },
-  "scripts": {
-    "test": "grunt qunit"
-  },
-  "author": {
-    "name": "Author Name",
-    "email": "email@domain.com",
-    "url": "http://bower.io/"
-  },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://mit-license.org"
+    "name": "switch-pair",
+    "description": "An switch pair app",
+    "version": "0.0.1",
+    "engines": {
+        "node": ">= 0.8.0"
+    },
+    "dependencies": {
+        "underscore": "1.7.0",
+        "restify": "2.8.3",
+        "sqlite3": "3.0.2",
+        "db-migrate": "0.7.1"
+    },
+    "scripts": {
+        "test": "grunt qunit"
+    },
+    "author": {
+        "name": "Fengda HUANG",
+        "email": "h@phodal.com",
+        "url": "http://www.phodal.com/"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "http://mit-license.org"
+        }
+    ],
+    "devDependencies": {
+        "grunt": "~0.4.1",
+        "grunt-contrib-qunit": "*",
+        "grunt-contrib-jshint": "*",
+        "grunt-contrib-concat": "*",
+        "grunt-contrib-uglify": "*",
+        "grunt-contrib-watch": "*",
+        "grunt-contrib-clean": "*",
+        "grunt-contrib-requirejs": "*",
+        "grunt-contrib-connect": "*"
     }
-  ],
-  "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-qunit": "*",
-    "grunt-contrib-jshint": "*",
-    "grunt-contrib-concat": "*",
-    "grunt-contrib-uglify": "*",
-    "grunt-contrib-watch": "*",
-    "grunt-contrib-clean": "*",
-    "grunt-contrib-requirejs": "*",
-    "grunt-contrib-connect": "*"
-  }
 }
