@@ -1,8 +1,10 @@
 var restify         = require('restify');
 var server          = restify.createServer();
 
-var DBService        = require('./services/user_services');
-var get_response    = new DBService();
+var UserServices        = require('./services/user_services');
+var PairServices        = require('./services/pair_services');
+var get_response    = new UserServices();
+var pair_response   = new PairServices();
 
 server.use(restify.gzipResponse());
 server.use(restify.bodyParser());
@@ -18,6 +20,7 @@ server.use(
 
 server.get('/all/account', get_response.findAllAccount);
 server.get('/account/id/:id', get_response.getAccountById);
+server.get('/last', pair_response.findLastPair);
 
 server.get('/', restify.serveStatic({
     directory: './',

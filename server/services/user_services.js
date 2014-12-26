@@ -1,12 +1,12 @@
 var UserMapper = require("./../mapper/user_mapper");
 var db        = new UserMapper();
 
-function DBService() {
+function UserServices() {
     'use strict';
     return;
 }
 
-DBService.prototype.getAccountById = function (req, res, next) {
+UserServices.prototype.getAccountById = function (req, res, next) {
     'use strict';
     var userId = req.params.id;
     db.getAccountById(userId, function (result) {
@@ -15,7 +15,7 @@ DBService.prototype.getAccountById = function (req, res, next) {
     });
 };
 
-DBService.prototype.findAllAccount = function (req, res, next) {
+UserServices.prototype.findAllAccount = function (req, res, next) {
     'use strict';
     db.findAllAccount(function (result) {
         res.send(result);
@@ -23,4 +23,4 @@ DBService.prototype.findAllAccount = function (req, res, next) {
     });
 };
 
-module.exports = DBService;
+module.exports = UserServices;

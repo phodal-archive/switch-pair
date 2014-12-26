@@ -95,4 +95,4 @@ data.csv
 data.json
 last.json
 dev.db
-migrations/*-create-users.js
+migrations/*-create-*.js
