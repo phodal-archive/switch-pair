@@ -20,7 +20,7 @@ server.get('/all/account', get_response.findAllAccount);
 server.get('/account/id/:id', get_response.getAccountById);
 
 server.get('/', restify.serveStatic({
-    directory: '/',
+    directory: './',
     default: 'index.html'
 }));
 
@@ -29,7 +29,7 @@ server.get(/\/?.*/, restify.serveStatic({
 }));
 
 
-server.listen(8080, function () {
+server.listen(9999, function () {
     'use strict';
     console.log('%s listening at %s', server.name, server.url);
 });

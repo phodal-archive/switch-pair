@@ -1,11 +1,10 @@
-define(["jquery", "underscore", "Role", "Switcher", "Behavior", "History"], function($, _, Role, Switcher, Behavior, History) {
-
+define(["jquery", "underscore", "Role", "Switcher", "Behavior", "History", "../config"], function($, _, Role, Switcher, Behavior, History, CONFIG) {
     $.getJSON("last.json", function (data) {
         History.save(data);
         Behavior.showLast(JSON.parse(History.getData()));
     });
 
-    $.getJSON("data.json", function (data) {
+    $.getJSON(CONFIG["all"], function (data) {
         var role = new Role(data);
         var allDev = role.getDev();
 	    var isEnoughPair = role.getSeniorNumber(allDev) - role.getJuniorNumber(allDev);
