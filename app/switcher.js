@@ -1,3 +1,5 @@
+/*jshint browserify: true, devel:true */
+
 var factory = function(
     _,
     Storage
@@ -33,7 +35,7 @@ var factory = function(
             var needToReAuto = this.compare(lastIDs, newIDs);
             while(needToReAuto){
                 this.auto(this.members);
-                var newIDs = this.getIds(this.switch);
+                newIDs = this.getIds(this.switch);
                 needToReAuto = this.compare(lastIDs, newIDs);
             }
             return this.switch;

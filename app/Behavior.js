@@ -1,8 +1,9 @@
+/*jshint browserify: true */
 var factory = function(
     _,
     $
 ) {
-    var Behavior = function (members) {
+    var Behavior = function () {
         this.initialize.apply(this, arguments);
     };
 
@@ -59,7 +60,7 @@ var factory = function(
             $.each(data, function (key, val) {
                 var names = [];
                 _.each(val["pair_info"], function(pair){
-                    names.push(pair["name"])
+                    names.push(pair["name"]);
                 });
                 items.push(names);
             });

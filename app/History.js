@@ -1,8 +1,10 @@
+/*jshint browserify: true */
 var factory = function(
     _,
+    $,
     Storage
 ) {
-    var History = function (members) {
+    var History = function () {
         this.initialize.apply(this, arguments);
     };
 
@@ -40,11 +42,13 @@ var factory = function(
 if (typeof module !== "undefined" && module.exports) {
     module.exports = factory(
         require("underscore"),
+        require("jquery"),
         require("Storage")
     );
 } else if (typeof define !== "undefined") {
     define([
         "underscore",
+        "jquery",
         "Storage"
     ], factory);
 }

@@ -1,7 +1,8 @@
+/*jshint browserify: true */
 var factory = function(
     _
 ) {
-    var Storage = function (members) {
+    var Storage = function () {
         this.initialize.apply(this, arguments);
     };
 

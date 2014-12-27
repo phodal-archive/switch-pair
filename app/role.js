@@ -1,7 +1,8 @@
+/*jshint browserify: true */
 var factory = function(
     _
 ) {
-    var Role = function (members) {
+    var Role = function () {
         this.initialize.apply(this, arguments);
     };
 
