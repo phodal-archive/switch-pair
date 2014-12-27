@@ -42,12 +42,12 @@ if (typeof module !== "undefined" && module.exports) {
     module.exports = factory(
         require("underscore"),
         require("jquery"),
-        require("Storage")
+        require("libs/Storage")
     );
 } else if (typeof define !== "undefined") {
     define([
         "underscore",
         "jquery",
-        "Storage"
+        "libs/Storage"
     ], factory);
 }

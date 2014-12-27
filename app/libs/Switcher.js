@@ -64,11 +64,11 @@ var factory = function(
 if (typeof module !== "undefined" && module.exports) {
     module.exports = factory(
         require("underscore"),
-        require("Storage")
+        require("libs/Storage")
     );
 } else if (typeof define !== "undefined") {
     define([
         "underscore",
-        "Storage"
+        "libs/Storage"
     ], factory);
 }
