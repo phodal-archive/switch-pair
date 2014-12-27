@@ -1,4 +1,3 @@
-/*jshint browserify: true */
 var factory = function(
     _,
     $

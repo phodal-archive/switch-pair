@@ -11,10 +11,5 @@
     "boss": true,
     "eqnull": true,
     "node": true,
-    "es5": true,
-    "globals": {
-        "define": false,
-        "module": false,
-        "console": false
-    }
+    "es5": true
 }

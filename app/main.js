@@ -1,4 +1,4 @@
-define(["jquery", "underscore", "Role", "Switcher", "Behavior", "History", "../config"], function($, _, Role, Switcher, Behavior, History, CONFIG) {
+define(["jquery", "underscore", "libs/Role", "libs/Switcher", "libs/Behavior", "libs/History", "../config"], function($, _, Role, Switcher, Behavior, History, CONFIG) {
     $.getJSON("last.json", function (data) {
         History.save(data);
         Behavior.showLast(JSON.parse(History.getData()));

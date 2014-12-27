@@ -1,5 +1,3 @@
-/*jshint browserify: true, devel:true */
-
 var factory = function(
     _,
     Storage
