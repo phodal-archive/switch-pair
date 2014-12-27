@@ -17,7 +17,13 @@ module.exports = function (grunt) {
                 stripBanners: true
             },
             dist: {
-                src: ['bower_components/requirejs/require.js', '<%= concat.dist.dest %>'],
+                src: [
+                    'bower_components/requirejs/require.js',
+                    'bower_components/jquery/dist/jquery.js',
+                    'bower_components/underscore/underscore.js',
+                    'bower_components/requirejs-plugins/src/json.js',
+                    '<%= concat.dist.dest %>'
+                ],
                 dest: 'dist/require.js'
             }
         },
