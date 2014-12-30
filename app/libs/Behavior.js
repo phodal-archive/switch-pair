@@ -26,7 +26,10 @@ var factory = function(
             $.each(data, function (key, val) {
                 if(key === "name" || key ==="id"){
                     items.push(" " + val);
-                }
+                };
+                if(key === "point"){
+                    items.push(" " + val["count"]);
+                };
             });
 
             $("<li/>",
@@ -35,7 +38,6 @@ var factory = function(
                     html: items.join("")
                 }
             ).appendTo("#senior");
-            //randomColor(data);
             //addImage(data);
         },
         addJunior: function(data) {
@@ -44,6 +46,9 @@ var factory = function(
                 if(key === "name" || key ==="id"){
                     items.push(" " + val);
                 }
+                if(key === "point"){
+                    items.push(" " + val["count"]);
+                };
             });
 
             $("<li/>",
