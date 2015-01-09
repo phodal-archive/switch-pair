@@ -1,11 +1,11 @@
-from flask import Flask, flash
+from flask import Flask, flash, render_template
 from flask.ext import restful
 from flask_restful import reqparse, Resource
 
 from redisdb.pr import PR
 from db import get_db, post_story
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='')
 app.secret_key = 'why would I tell you my secret key?'
 
 api = restful.Api(app)
@@ -51,6 +51,17 @@ class Story(Resource):
             results.append(result)
         db.commit()
         return results, 201, {'Access-Control-Allow-Origin': '*'}
+
+
+@app.route('/')
+def root():
+    return app.send_static_file('index.html')
+
+
+@app.route('/<path:path>')
+def static_proxy(path):
+    # send_static_file will guess the correct MIME type
+    return app.send_static_file(path)
 
 
 api.add_resource(All, '/all/account')

@@ -1,5 +1,5 @@
 node_modules/
-bower_components/
+static/bower_components/
 temp/
 dist/
 
@@ -54,7 +54,7 @@ crashlytics-build.properties
 
 ### Yeoman template
 node_modules/
-bower_components/
+static/bower_components/
 *.log
 
 build/
@@ -93,7 +93,7 @@ node_modules
 
 data.csv
 data.json
-last.json
+static/last.json
 dev.db
 migrations/*-create-*.js
 
